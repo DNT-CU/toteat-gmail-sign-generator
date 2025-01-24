@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generador de firmas personalizadas para Gmail.">
+  <title>Generador de Firma</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="info-box">
+      <h1>Generador de firma</h1>
+      <p>Ingresa tu nombre, cargo y número de celular para obtener tu firma digital personalizada para Gmail.</p>
+      <h3>¿Cómo funciona?</h3>
+      <p>Después de ingresar tus datos, se generará una firma que incluya el contenido que cargaste.</p>
+      <h3>¿Qué hago después?</h3>
+      <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail.</p>
+    </div>
+    <form class="form-box flex-vertical-12px">
+      <div>
+      <label for="nombre">Ingresa tu nombre</label>
+      <input type="text" id="nombre" placeholder="Ejemplo: Gordon Ramsay" required>
+      </div>
+        
+      <div>
+      <label for="telefono">Ingresa tu número de teléfono</label>
+      <input type="tel" id="telefono" placeholder="Ejemplo: +569 72972872" required>
+      </div>
+      
+      <div>
+        <label for="pais">Selecciona tu país:</label>
+        <select id="pais" required>
+          <option value="Chile">Chile</option>
+          <option value="Argentina">Argentina</option>
+          <option value="México">México</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Perú">Perú</option>
+        </select>
+      </div>
+      
+
+      <div class="flex-vertical-12px">
+        <label for="imagen">¿Necesitas una imagen en la firma?</label>
+        <div class="file-upload">
+          <input type="file" id="imagen" accept="image/*">
+          <span>Arrastra aquí una imagen para subir</span>
+        </div>
+
+      </div>
+      
+
+      <button type="submit" class="generate-button">Generar Firma</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+/* Global Styles */
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+  
+
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #FFFFFF;
+    color: #1b1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1140px;
+    padding: 2rem;
+  }
+  
+  .info-box, .form-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    flex: 1;
+    border: solid 1px #DDDDDD;
+  }
+  
+  .form-box label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .form-box input,
+  .form-box select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-box .file-upload {
+    border: 2px dashed #ddd;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    color: #999;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+  
+  .form-box .file-upload input {
+    display: none;
+  }
+  
+  .form-box .file-upload span {
+    display: block;
+  }
+  
+  .generate-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #FF4B33;
+    color: #fff;
+    border: none;
+    border-radius: 1500px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+  }
+  
+  .generate-button:hover {
+    background-color: #FFA099;
+  }
+  
+  .flex-vertical-6px {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .flex-vertical-12px {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
