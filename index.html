@@ -4,57 +4,180 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Generador de firmas personalizadas para Gmail.">
-  <title>Generador de Firma</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="shortcut icon" href="/img/favicon-firma.png">
+
+  <title>Generador de Firmas</title>
 </head>
 <body>
+
   <div class="container">
     <div class="info-box">
-      <h1>Generador de firma</h1>
-      <p>Ingresa tu nombre, cargo y número de celular para obtener tu firma digital personalizada para Gmail.</p>
-      <h3>¿Cómo funciona?</h3>
-      <p>Después de ingresar tus datos, se generará una firma que incluya el contenido que cargaste.</p>
-      <h3>¿Qué hago después?</h3>
-      <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail.</p>
+        <h1>Generador de firmas</h1>
+        <p>Ingresa tu nombre, cargo y número de celular para obtener tu firma digital personalizada para Gmail.</p>
+        <h3>¿Cómo funciona?</h3>
+        <p>Después de ingresar tus datos, se generará una firma que incluya el contenido que cargaste.</p>
+        <h3>¿Qué hago después?</h3>
+        <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail.</p>
     </div>
-    <form class="form-box flex-vertical-12px">
-      <div>
-      <label for="nombre">Ingresa tu nombre</label>
-      <input type="text" id="nombre" placeholder="Ejemplo: Gordon Ramsay" required>
-      </div>
-        
-      <div>
-      <label for="telefono">Ingresa tu número de teléfono</label>
-      <input type="tel" id="telefono" placeholder="Ejemplo: +569 72972872" required>
-      </div>
-      
-      <div>
-        <label for="pais">Selecciona tu país:</label>
-        <select id="pais" required>
-          <option value="Chile">Chile</option>
-          <option value="Argentina">Argentina</option>
-          <option value="México">México</option>
-          <option value="Colombia">Colombia</option>
-          <option value="Perú">Perú</option>
-        </select>
-      </div>
-      
 
-      <div class="flex-vertical-12px">
-        <label for="imagen">¿Necesitas una imagen en la firma?</label>
-        <div class="file-upload">
-          <input type="file" id="imagen" accept="image/*">
-          <span>Arrastra aquí una imagen para subir</span>
-        </div>
+    <form class="form-box">
 
-      </div>
-      
+    <label for="nombre"><p>Ingresa tu nombre</p></label>
+    <input type="text" id="nombre" placeholder="Gordon Ramsay"  required>
 
-      <button type="submit" class="generate-button">Generar Firma</button>
+    <label for="cargo"><p>Ingresa tu cargo</p></label>
+    <input type="text" id="cargo" placeholder="Country Manager" required>
+
+    <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
+    <input type="tel" id="telefono" placeholder="+569 27362978" required>
+
+      <label for="pais"><p>Selecciona tu país</p></label>
+      <select id="pais" required>
+        <option value="Chile" selected>Chile</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Mexico">México</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+
+        <label for="imagen"><p>¿Necesitas una imagen en la firma?</p></label>
+        <div class="file-upload" id="drop-zone">
+            <input type="file" id="imagen" accept="image/*">
+            <p>Arrastra aquí una imagen para subir</p>
+
+    </div>    
+
+      <button type="button" class="generate-button" onclick="actualizarFirma()">Generar Firma</button>
     </form>
-  </div>
+    <div class="preview-container">
+        <h3>Preview</h3>
+        <div id="firmaPreview">
+            <table 
+            style="max-width: 500px; 
+            font-family: Arial, sans-serif; 
+            font-size: 14px; line-height: 1.5; 
+            border-collapse: collapse; 
+            ">
+                <tr style="display: flex; flex-direction: row; gap: 32px;">
+                  <!-- Columna izquierda: Logo -->
+                  <td style="vertical-align: center; padding-right: 15px; width: 120px; margin-top: 24px;">
+                      <img src="/img/ANIM_LOGO-TOTEAT-LOOP1.gif" alt="logo-toteat" href="https://www.toteat.com" style="max-width: 146px;">
+                  </td>
+                  
+                  <!-- Columna central: Línea -->
+    
+                  <td style="border-right: #333 1px solid; width: 2px;">
+    
+                  </td>
+    
+                  <!-- Columna derecha: Información personal -->
+                  <td style="vertical-align: top; max-width: 290px;">
+                    <strong style="color: #f05656; font-size: 16px;" id="firmaNombre">Gordon Ramsay</strong><br>
+                    <span style="font-weight: 300; margin: 0;" id="firmaCargo">Country Manager</span><br>
+                    <span id="firmaTelefono" style="font-weight: 300; margin: 0;">+569 27362978</span><br>
+                    <span id="firmaDireccion" style="font-weight: 300; margin: 0;">Vitacura 2771, Oficina 504, Las Condes</span>
+                  </td>
+                </tr>
+                
+                <!-- Fila con la imagen promocional -->
+                <tr>
+                  <td colspan="3" style="padding-top: 10px;">
+                    <img id="firmaImagen" src="/img/Referidos-CL.png" width="100%" style="display: block; border-radius: 8px;">
+                  </td>
+                </tr>
+              </table>
+        </div>
+        <button type="button" class="secondary-button" onclick="copiarFirma()">📋 Copiar Firma</button>
+      </div>
+
+</div>
+
+
+
+  <script>
+    function actualizarFirma() {
+      document.getElementById('firmaNombre').textContent = document.getElementById('nombre').value;
+      document.getElementById('firmaTelefono').textContent = document.getElementById('telefono').value;
+      document.getElementById('firmaCargo').textContent = document.getElementById('cargo').value;
+
+      let direcciones = {
+        'Chile': 'Av. Vitacura 2771, Oficina 504, Las Condes, Chile.',
+        'Colombia': 'Carrera 11B #99-25, Torre 2 Piso 8. Wework calle 99, Bogotá.',
+        'Mexico': 'Av. P.º de la Reforma 222 Piso 18, Juárez, Cuauhtémoc, 06600 CDMX.'
+      };
+
+      let pais = document.getElementById('pais').value;
+      document.getElementById('firmaDireccion').textContent = direcciones[pais] || 'Dirección no disponible';
+    }
+
+    function copiarFirma() {
+      const firmaHTML = document.getElementById('firmaPreview').innerHTML;
+
+      navigator.clipboard.write([
+        new ClipboardItem({
+          'text/html': new Blob([firmaHTML], { type: 'text/html' })
+        })
+      ]).then(() => {
+        alert('Firma copiada con éxito!');
+      }).catch(() => {
+        alert('Error al copiar la firma.');
+      });
+    }
+
+    document.getElementById('imagen').addEventListener('change', actualizarImagenFirma);
+    document.getElementById('drop-zone').addEventListener('dragover', (event) => {
+    event.preventDefault();
+    event.target.style.border = "2px dashed #f05656"; 
+    });
+
+    document.getElementById('drop-zone').addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    event.target.style.border = "2px dashed #dddddd"; 
+    }); 
+
+    document.getElementById('drop-zone').addEventListener('drop', (event) => {
+    event.preventDefault();
+    event.target.style.border = "2px dashed #dddddd";
+
+    const file = event.dataTransfer.files[0];
+    if (file) {
+        document.getElementById('imagen').files = event.dataTransfer.files; // Asignar el archivo al input
+        actualizarImagenFirma({ target: document.getElementById('imagen') });
+    }
+});
+
+function actualizarImagenFirma(event) {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            let firmaImagen = document.getElementById('firmaImagen');
+
+            if (!firmaImagen) {
+                firmaImagen = document.createElement('img');
+                firmaImagen.id = 'firmaImagen';
+                firmaImagen.style.maxWidth = '150px';
+                firmaImagen.style.marginTop = '10px';
+                document.getElementById('firmaPreview').appendChild(firmaImagen);
+            }
+
+            firmaImagen.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    } else {
+        const firmaImagen = document.getElementById('firmaImagen');
+        if (firmaImagen) {
+            firmaImagen.remove();
+        }
+    }
+}
+
+
+  </script>
+
 </body>
 </html>
