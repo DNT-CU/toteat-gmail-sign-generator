@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="img/favicon-firma.png">
 
-  <title>Generador de Firmas</title>
+  <title>Generador de Firmas | Toteat</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
         <h3>¿Cómo funciona?</h3>
         <p>Después de ingresar tus datos, se generará una firma que incluya el contenido que cargaste.</p>
         <h3>¿Qué hago después?</h3>
-        <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail.</p>
+        <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail. También puedes pegarlo en el cuerpo de tus correos.</p>
     </div>
 
     <form class="form-box">
@@ -37,7 +37,8 @@
         <option value="Chile" selected>Chile</option>
         <option value="Colombia">Colombia</option>
         <option value="Mexico">México</option>
-        <option value="Otro">Otro</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Peru">Peru</option>
       </select>
 
 
@@ -108,7 +109,7 @@
       };
 
       let pais = document.getElementById('pais').value;
-      document.getElementById('firmaDireccion').textContent = direcciones[pais] || 'Dirección no disponible';
+      document.getElementById('firmaDireccion').textContent = direcciones[pais] || ' ';
     }
 
     function copiarFirma() {
@@ -149,7 +150,6 @@
 
 function actualizarImagenFirma(event) {
     const file = event.target.files[0];
-
     if (file) {
         const reader = new FileReader();
 
@@ -175,6 +175,25 @@ function actualizarImagenFirma(event) {
         }
     }
 }
+
+function actualizarImagenFirmaOpciones() {
+    let imagenesReferidos = {
+        'Chile': 'img/Referidos-CL.png',
+        'Mexico': 'img/Referidos-MX.png',
+        'Colombia': 'img/Referidos-CO.png',
+        'Peru': 'img/Referidos-PE.png',
+        'Argentina': 'img/Referidos-AR.png'
+    };
+
+    let paisSeleccionado = document.getElementById('pais').value;
+    let firmaImagen = document.getElementById('firmaImagen');
+
+    if (firmaImagen && imagenesReferidos[paisSeleccionado]) {
+        firmaImagen.src = imagenesReferidos[paisSeleccionado];
+    }
+}
+
+document.getElementById('pais').addEventListener('change', actualizarImagenFirmaOpciones);
 
 
   </script>
