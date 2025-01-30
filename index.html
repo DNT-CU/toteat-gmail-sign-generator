@@ -110,6 +110,8 @@
 
       let pais = document.getElementById('pais').value;
       document.getElementById('firmaDireccion').textContent = direcciones[pais] || ' ';
+
+      actualizarImagenFirmaOpciones();
     }
 
     function copiarFirma() {
@@ -184,13 +186,26 @@ function actualizarImagenFirmaOpciones() {
         'Peru': 'img/Referidos-PE.png',
         'Argentina': 'img/Referidos-AR.png'
     };
+    let urlsReferidos = {
+        'Chile': 'https://referido.toteat.com/chile',
+        'Mexico': 'https://referido.toteat.com/mexico',
+        'Colombia': 'https://referido.toteat.com/colombia',
+        'Peru': 'https://referido.toteat.com/peru',
+        'Argentina': 'https://referido.toteat.com/argentina'
+    };
 
     let paisSeleccionado = document.getElementById('pais').value;
     let firmaImagen = document.getElementById('firmaImagen');
+    let urlLanding = document.getElementById('urlLanding');
 
-    if (firmaImagen && imagenesReferidos[paisSeleccionado]) {
-        firmaImagen.src = imagenesReferidos[paisSeleccionado];
-    }
+    if (firmaImagen) {
+            firmaImagen.src = imagenesReferidos[paisSeleccionado];
+        }
+
+        if (urlLanding) {
+            urlLanding.href = urlsReferidos[paisSeleccionado];
+            urlLanding.target = "_blank";
+        }
 }
 
 document.getElementById('pais').addEventListener('change', actualizarImagenFirmaOpciones);
