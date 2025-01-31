@@ -24,10 +24,10 @@
             </div>
           </div>
 
-          <label for="nombre"><p>Ingresa tu nombre</p></label>
+          <label for="nombre">Ingresa tu nombre</label>
           <input type="text" id="nombre" placeholder="Gordon Ramsay" required />
 
-          <label for="cargo"><p>Ingresa tu cargo</p></label>
+          <label for="cargo">Ingresa tu cargo</label>
           <input
             type="text"
             id="cargo"
@@ -35,7 +35,7 @@
             required
           />
 
-          <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
+          <label for="telefono">Ingresa tu número de teléfono</label>
           <input
             type="tel"
             id="telefono"
@@ -43,7 +43,7 @@
             required
           />
 
-          <label for="pais"><p>Selecciona tu país</p></label>
+          <label for="pais">Selecciona tu país</label>
           <select id="pais" required>
             <option value="Chile" selected>Chile</option>
             <option value="Colombia">Colombia</option>
@@ -52,7 +52,7 @@
             <option value="Peru">Peru</option>
           </select>
 
-          <label for="imagen"><p>¿Necesitas otra imagen en la firma?</p></label>
+          <label for="imagen">¿Necesitas otra imagen en la firma?</label>
           <div class="file-upload" id="drop-zone">
             <input type="file" id="imagen" accept="image/*" />
             <p>Arrastra aquí una imagen para subir</p>
@@ -312,12 +312,15 @@
         .addEventListener('change', actualizarImagenFirmaOpciones)
     </script>
 
-    <div class="contenedor-logo-secundario">
-      <img src="img/logo-corto-toteat.svg" alt="logo corto toteat" />
-    </div>
+<footer>
+  <div class="contenedor-logo-secundario">
+    <img src="img/logo-corto-toteat.svg" alt="logo corto toteat" />
+  </div>
 
-    <div class="detalle-izq">
-      <p>Construido con mucho cariño por @Dante</p>
-    </div>
+  <div class="detalle-izq">
+    <p>Construido con mucho cariño por @Dante</p>
+  </div>
+</footer>
+    
   </body>
 </html>
