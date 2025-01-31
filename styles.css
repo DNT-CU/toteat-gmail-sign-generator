@@ -246,20 +246,16 @@ p {
   }
 }
 
-@media only screen and (max-width:441px) {
-  .preview-container, .form-box {
-    min-width: none;
-    width: 100%;
-  }
-}
+
 
 @media only screen and (max-width: 370px) {
   .container-informacion {
     height: 160px;
   }
 
-  .preview-container {
+  .preview-container, .form-box {
     max-width: 100%;
     padding: 16px;
+    border: 0;
   }
 }
