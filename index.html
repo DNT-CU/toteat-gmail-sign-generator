@@ -11,49 +11,51 @@
 </head>
 <body>
 
+<div class="section">
   <div class="container">
-    <div class="info-box">
-        <h1>Generador de firmas</h1>
-        <p>Ingresa tu nombre, cargo y número de celular para obtener tu firma digital personalizada para Gmail.</p>
-        <h3>¿Cómo funciona?</h3>
-        <p>Después de ingresar tus datos, se generará una firma que incluya el contenido que cargaste.</p>
-        <h3>¿Qué hago después?</h3>
-        <p>Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail. También puedes pegarlo en el cuerpo de tus correos.</p>
-    </div>
-
     <form class="form-box">
-
-    <label for="nombre"><p>Ingresa tu nombre</p></label>
-    <input type="text" id="nombre" placeholder="Gordon Ramsay"  required>
-
-    <label for="cargo"><p>Ingresa tu cargo</p></label>
-    <input type="text" id="cargo" placeholder="Country Manager" required>
-
-    <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
-    <input type="tel" id="telefono" placeholder="+569 27362978" required>
-
+      <div class="container-informacion">
+      <h1>Generador de firmas</h1>
+      <div>
+        <h3>¿Cómo funciona?</h3>
+        <p>Ingresa tus datos para crear una nueva firma personalizada.</p>
+      </div>
+     
+      </div>
+  
+      <label for="nombre"><p>Ingresa tu nombre</p></label>
+      <input type="text" id="nombre" placeholder="Gordon Ramsay"  required>
+  
+      <label for="cargo"><p>Ingresa tu cargo</p></label>
+      <input type="text" id="cargo" placeholder="Country Manager" required>
+  
+      <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
+      <input type="tel" id="telefono" placeholder="+569 27362978" required>
+  
       <label for="pais"><p>Selecciona tu país</p></label>
       <select id="pais" required>
-        <option value="Chile" selected>Chile</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Mexico">México</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Peru">Peru</option>
+      <option value="Chile" selected>Chile</option>
+      <option value="Colombia">Colombia</option>
+      <option value="Mexico">México</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Peru">Peru</option>
       </select>
-
-
-        <label for="imagen"><p>¿Necesitas otra imagen en la firma?</p></label>
-        <div class="file-upload" id="drop-zone">
-            <input type="file" id="imagen" accept="image/*">
-            <p>Arrastra aquí una imagen para subir</p>
-
-    </div>    
-
-      <button type="button" class="generate-button" onclick="actualizarFirma()">Generar Firma</button>
-    </form>
+  
+  
+          <label for="imagen"><p>¿Necesitas otra imagen en la firma?</p></label>
+          <div class="file-upload" id="drop-zone">
+              <input type="file" id="imagen" accept="image/*">
+              <p>Arrastra aquí una imagen para subir</p>
+  
+      </div>    
+  
+        <button type="button" class="generate-button" onclick="actualizarFirma()">Generar Firma</button>
+      </form>
     <div class="preview-container">
-        <h3>Preview</h3>
+      <div class="flex-vertical-32px">
+        <h1>Preview</h1>
         <div id="firmaPreview">
+          
             <table 
             style="max-width: 500px; 
             font-family: Arial, sans-serif; 
@@ -89,10 +91,19 @@
                 </tr>
               </table>
         </div>
-        <button type="button" class="secondary-button" onclick="copiarFirma()">📋 Copiar Firma</button>
+        <button type="button" class="secondary-button" onclick="copiarFirma()"><h4>Copiar Firma</h4></button>
       </div>
-
+      
+      <div class="info-container">
+        <h3>¿Qué hago después?</h3>
+        <p class="info-container-text">Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail. También puedes pegarlo en el cuerpo de tus correos.</p>
+        <div class="align-left"><p class="terciary-button"><strong><a href="https://gmail.com" target="_blank">Ir a Gmail -></a></strong></p></div>
+      </div>
+        
+      </div>
+  </div>
 </div>
+
 
 
 
@@ -105,7 +116,9 @@
       let direcciones = {
         'Chile': 'Av. Vitacura 2771, Oficina 504, Las Condes, Chile.',
         'Colombia': 'Carrera 11B #99-25, Torre 2 Piso 8. Wework calle 99, Bogotá.',
-        'Mexico': 'Av. P.º de la Reforma 222 Piso 18, Juárez, Cuauhtémoc, 06600 CDMX.'
+        'Mexico': 'Av. P.º de la Reforma 222 Piso 18, Juárez, Cuauhtémoc, 06600 CDMX.',
+        'Peru': 'www.toteat.com',
+        'Argentina': 'www.toteat.com'
       };
 
       let pais = document.getElementById('pais').value;
@@ -209,9 +222,15 @@ function actualizarImagenFirmaOpciones() {
 }
 
 document.getElementById('pais').addEventListener('change', actualizarImagenFirmaOpciones);
+</script>
 
+<div class="contenedor-logo-secundario">
+  <img src="img/logo-corto-toteat.svg" alt="logo corto toteat">
+  </div>
 
-  </script>
-
+<div class="detalle-izq">
+<p>Hecho con mucho ocio por @Dante</p>
+</div>
+a
 </body>
 </html>
