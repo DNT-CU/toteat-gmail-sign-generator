@@ -1,236 +1,323 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generador de firmas personalizadas para Gmail.">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="shortcut icon" href="img/favicon-firma.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Generador de firmas personalizadas para Gmail."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="img/favicon-firma.png" />
 
-  <title>Generador de Firmas | Toteat</title>
-</head>
-<body>
+    <title>Generador de Firmas | Toteat</title>
+  </head>
+  <body>
+    <div class="section">
+      <div class="container">
+        <form class="form-box">
+          <div class="container-informacion">
+            <h1>Generador de firmas</h1>
+            <div>
+              <h3>¿Cómo funciona?</h3>
+              <p>Ingresa tus datos para crear una nueva firma personalizada.</p>
+            </div>
+          </div>
 
-<div class="section">
-  <div class="container">
-    <form class="form-box">
-      <div class="container-informacion">
-      <h1>Generador de firmas</h1>
-      <div>
-        <h3>¿Cómo funciona?</h3>
-        <p>Ingresa tus datos para crear una nueva firma personalizada.</p>
-      </div>
-     
-      </div>
-  
-      <label for="nombre"><p>Ingresa tu nombre</p></label>
-      <input type="text" id="nombre" placeholder="Gordon Ramsay"  required>
-  
-      <label for="cargo"><p>Ingresa tu cargo</p></label>
-      <input type="text" id="cargo" placeholder="Country Manager" required>
-  
-      <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
-      <input type="tel" id="telefono" placeholder="+569 27362978" required>
-  
-      <label for="pais"><p>Selecciona tu país</p></label>
-      <select id="pais" required>
-      <option value="Chile" selected>Chile</option>
-      <option value="Colombia">Colombia</option>
-      <option value="Mexico">México</option>
-      <option value="Argentina">Argentina</option>
-      <option value="Peru">Peru</option>
-      </select>
-  
-  
+          <label for="nombre"><p>Ingresa tu nombre</p></label>
+          <input type="text" id="nombre" placeholder="Gordon Ramsay" required />
+
+          <label for="cargo"><p>Ingresa tu cargo</p></label>
+          <input
+            type="text"
+            id="cargo"
+            placeholder="Country Manager"
+            required
+          />
+
+          <label for="telefono"><p>Ingresa tu número de teléfono</p></label>
+          <input
+            type="tel"
+            id="telefono"
+            placeholder="+569 27362978"
+            required
+          />
+
+          <label for="pais"><p>Selecciona tu país</p></label>
+          <select id="pais" required>
+            <option value="Chile" selected>Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Mexico">México</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Peru">Peru</option>
+          </select>
+
           <label for="imagen"><p>¿Necesitas otra imagen en la firma?</p></label>
           <div class="file-upload" id="drop-zone">
-              <input type="file" id="imagen" accept="image/*">
-              <p>Arrastra aquí una imagen para subir</p>
-  
-      </div>    
-  
-        <button type="button" class="generate-button" onclick="actualizarFirma()">Generar Firma</button>
-      </form>
-    <div class="preview-container">
-      <div class="flex-vertical-32px">
-        <h1>Preview</h1>
-        <div id="firmaPreview">
-          
-            <table 
-            style="max-width: 500px; 
-            font-family: Arial, sans-serif; 
-            font-size: 14px; line-height: 1.5; 
-            border-collapse: collapse; 
-            ">
-                <tr style="display: flex; flex-direction: row; vertical-align: center;">
+            <input type="file" id="imagen" accept="image/*" />
+            <p>Arrastra aquí una imagen para subir</p>
+          </div>
+
+          <button
+            type="button"
+            class="generate-button"
+            onclick="actualizarFirma()"
+          >
+            Generar Firma
+          </button>
+        </form>
+        <div class="preview-container">
+          <div class="flex-vertical-32px">
+            <h1>Preview</h1>
+            <div id="firmaPreview">
+              <table
+                style="
+                  max-width: 500px;
+                  font-family: Arial, sans-serif;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  border-collapse: collapse;
+                "
+              >
+                <tr
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    vertical-align: center;
+                  "
+                >
                   <!-- Columna izquierda: Logo -->
-                  <td style="vertical-align: center; padding-right: 15px; width: 120px; margin-top: 24px; border-right: 16px;">
-                      <img src="img/ANIM_LOGO-TOTEAT-LOOP1.gif" alt="logo-toteat" href="https://www.toteat.com" style="max-width: 146px;">
+                  <td
+                    style="
+                      vertical-align: center;
+                      padding-right: 15px;
+                      width: 120px;
+                      margin-top: 24px;
+                      border-right: 16px;
+                    "
+                  >
+                    <img
+                      src="img/ANIM_LOGO-TOTEAT-LOOP1.gif"
+                      alt="logo-toteat"
+                      href="https://www.toteat.com"
+                      style="max-width: 146px"
+                    />
                   </td>
-                  
+
                   <!-- Columna central: Línea -->
-    
-                  <td style="width: 15%; text-align: center;">
-                    <img src="img/linea-separadora.png" alt="linea separadora">
+
+                  <td style="width: 15%; text-align: center">
+                    <img
+                      src="img/linea-separadora.png"
+                      alt="linea separadora"
+                    />
                   </td>
-    
+
                   <!-- Columna derecha: Información personal -->
-                  <td style="vertical-align: top; max-width: 290px;">
-                    <strong style="color: #f05656; font-size: 16px;" id="firmaNombre">Gordon Ramsay</strong><br>
-                    <span style="font-weight: 300; margin: 0;" id="firmaCargo">Country Manager</span><br>
-                    <span id="firmaTelefono" style="font-weight: 300; margin: 0;">+569 27362978</span><br>
-                    <span id="firmaDireccion" style="font-weight: 300; margin: 0;">Vitacura 2771, Of. 504, Las Condes</span>
+                  <td style="vertical-align: top; max-width: 290px">
+                    <strong
+                      style="color: #f05656; font-size: 16px"
+                      id="firmaNombre"
+                      >Gordon Ramsay</strong
+                    ><br />
+                    <span style="font-weight: 300; margin: 0" id="firmaCargo"
+                      >Country Manager</span
+                    ><br />
+                    <span id="firmaTelefono" style="font-weight: 300; margin: 0"
+                      >+569 27362978</span
+                    ><br />
+                    <span
+                      id="firmaDireccion"
+                      style="font-weight: 300; margin: 0"
+                      >Vitacura 2771, Of. 504, Las Condes</span
+                    >
                   </td>
                 </tr>
-                
+
                 <!-- Fila con la imagen promocional -->
                 <tr>
-                  <td colspan="3" style="padding-top: 10px;">
-                    <a id="urlLanding" href="#"><img id="firmaImagen" src="img/Referidos-CL.png" width="100%" style="display: block; border-radius: 8px;"></a>
+                  <td colspan="3" style="padding-top: 10px">
+                    <a id="urlLanding" href="#"
+                      ><img
+                        id="firmaImagen"
+                        src="img/Referidos-CL.png"
+                        width="100%"
+                        style="display: block; border-radius: 8px"
+                    /></a>
                   </td>
                 </tr>
               </table>
+            </div>
+            <button
+              type="button"
+              class="secondary-button"
+              onclick="copiarFirma()"
+            >
+              <h4>Copiar Firma</h4>
+            </button>
+          </div>
+
+          <div class="info-container">
+            <h3>¿Qué hago después?</h3>
+            <p class="info-container-text">
+              Tras generar la firma, debes copiar el contenido y pegarlo en el
+              mismo lugar donde actualizas tu firma en Gmail. También puedes
+              pegarlo en el cuerpo de tus correos.
+            </p>
+            <div class="align-left">
+              <p class="terciary-button">
+                <strong
+                  ><a href="https://gmail.com" target="_blank"
+                    >Ir a Gmail -></a
+                  ></strong
+                >
+              </p>
+            </div>
+          </div>
         </div>
-        <button type="button" class="secondary-button" onclick="copiarFirma()"><h4>Copiar Firma</h4></button>
       </div>
-      
-      <div class="info-container">
-        <h3>¿Qué hago después?</h3>
-        <p class="info-container-text">Tras generar la firma, debes copiar el contenido y pegarlo en el mismo lugar donde actualizas tu firma en Gmail. También puedes pegarlo en el cuerpo de tus correos.</p>
-        <div class="align-left"><p class="terciary-button"><strong><a href="https://gmail.com" target="_blank">Ir a Gmail -></a></strong></p></div>
-      </div>
-        
-      </div>
-  </div>
-</div>
+    </div>
 
+    <script>
+      function actualizarFirma() {
+        document.getElementById('firmaNombre').textContent =
+          document.getElementById('nombre').value
+        document.getElementById('firmaTelefono').textContent =
+          document.getElementById('telefono').value
+        document.getElementById('firmaCargo').textContent =
+          document.getElementById('cargo').value
 
+        let direcciones = {
+          Chile: 'Av. Vitacura 2771, Oficina 504, Las Condes, Chile.',
+          Colombia:
+            'Carrera 11B #99-25, Torre 2 Piso 8. Wework calle 99, Bogotá.',
+          Mexico:
+            'Av. P.º de la Reforma 222 Piso 18, Juárez, Cuauhtémoc, 06600 CDMX.',
+          Peru: 'www.toteat.com',
+          Argentina: 'www.toteat.com',
+        }
 
+        let pais = document.getElementById('pais').value
+        document.getElementById('firmaDireccion').textContent =
+          direcciones[pais] || ' '
 
-  <script>
-    function actualizarFirma() {
-      document.getElementById('firmaNombre').textContent = document.getElementById('nombre').value;
-      document.getElementById('firmaTelefono').textContent = document.getElementById('telefono').value;
-      document.getElementById('firmaCargo').textContent = document.getElementById('cargo').value;
+        actualizarImagenFirmaOpciones()
+      }
 
-      let direcciones = {
-        'Chile': 'Av. Vitacura 2771, Oficina 504, Las Condes, Chile.',
-        'Colombia': 'Carrera 11B #99-25, Torre 2 Piso 8. Wework calle 99, Bogotá.',
-        'Mexico': 'Av. P.º de la Reforma 222 Piso 18, Juárez, Cuauhtémoc, 06600 CDMX.',
-        'Peru': 'www.toteat.com',
-        'Argentina': 'www.toteat.com'
-      };
+      function copiarFirma() {
+        const firmaHTML = document.getElementById('firmaPreview').innerHTML
 
-      let pais = document.getElementById('pais').value;
-      document.getElementById('firmaDireccion').textContent = direcciones[pais] || ' ';
+        navigator.clipboard
+          .write([
+            new ClipboardItem({
+              'text/html': new Blob([firmaHTML], { type: 'text/html' }),
+            }),
+          ])
+          .then(() => {
+            alert('Firma copiada con éxito!')
+          })
+          .catch(() => {
+            alert('Error al copiar la firma.')
+          })
+      }
 
-      actualizarImagenFirmaOpciones();
-    }
-
-    function copiarFirma() {
-      const firmaHTML = document.getElementById('firmaPreview').innerHTML;
-
-      navigator.clipboard.write([
-        new ClipboardItem({
-          'text/html': new Blob([firmaHTML], { type: 'text/html' })
+      document
+        .getElementById('imagen')
+        .addEventListener('change', actualizarImagenFirma)
+      document
+        .getElementById('drop-zone')
+        .addEventListener('dragover', (event) => {
+          event.preventDefault()
+          event.target.style.border = '2px dashed #f05656'
         })
-      ]).then(() => {
-        alert('Firma copiada con éxito!');
-      }).catch(() => {
-        alert('Error al copiar la firma.');
-      });
-    }
 
-    document.getElementById('imagen').addEventListener('change', actualizarImagenFirma);
-    document.getElementById('drop-zone').addEventListener('dragover', (event) => {
-    event.preventDefault();
-    event.target.style.border = "2px dashed #f05656"; 
-    });
+      document
+        .getElementById('drop-zone')
+        .addEventListener('dragleave', (event) => {
+          event.preventDefault()
+          event.target.style.border = '2px dashed #dddddd'
+        })
 
-    document.getElementById('drop-zone').addEventListener('dragleave', (event) => {
-    event.preventDefault();
-    event.target.style.border = "2px dashed #dddddd"; 
-    }); 
+      document.getElementById('drop-zone').addEventListener('drop', (event) => {
+        event.preventDefault()
+        event.target.style.border = '2px dashed #dddddd'
 
-    document.getElementById('drop-zone').addEventListener('drop', (event) => {
-    event.preventDefault();
-    event.target.style.border = "2px dashed #dddddd";
+        const file = event.dataTransfer.files[0]
+        if (file) {
+          document.getElementById('imagen').files = event.dataTransfer.files // Asignar el archivo al input
+          actualizarImagenFirma({ target: document.getElementById('imagen') })
+        }
+      })
 
-    const file = event.dataTransfer.files[0];
-    if (file) {
-        document.getElementById('imagen').files = event.dataTransfer.files; // Asignar el archivo al input
-        actualizarImagenFirma({ target: document.getElementById('imagen') });
-    }
-});
+      function actualizarImagenFirma(event) {
+        const file = event.target.files[0]
+        if (file) {
+          const reader = new FileReader()
 
-function actualizarImagenFirma(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            let firmaImagen = document.getElementById('firmaImagen');
+          reader.onload = function (e) {
+            let firmaImagen = document.getElementById('firmaImagen')
 
             if (!firmaImagen) {
-                firmaImagen = document.createElement('img');
-                firmaImagen.id = 'firmaImagen';
-                firmaImagen.style.maxWidth = '150px';
-                firmaImagen.style.marginTop = '10px';
-                document.getElementById('firmaPreview').appendChild(firmaImagen);
+              firmaImagen = document.createElement('img')
+              firmaImagen.id = 'firmaImagen'
+              firmaImagen.style.maxWidth = '150px'
+              firmaImagen.style.marginTop = '10px'
+              document.getElementById('firmaPreview').appendChild(firmaImagen)
             }
 
-            firmaImagen.src = e.target.result;
-        };
+            firmaImagen.src = e.target.result
+          }
 
-        reader.readAsDataURL(file);
-    } else {
-        const firmaImagen = document.getElementById('firmaImagen');
-        if (firmaImagen) {
-            firmaImagen.remove();
+          reader.readAsDataURL(file)
+        } else {
+          const firmaImagen = document.getElementById('firmaImagen')
+          if (firmaImagen) {
+            firmaImagen.remove()
+          }
         }
-    }
-}
+      }
 
-function actualizarImagenFirmaOpciones() {
-    let imagenesReferidos = {
-        'Chile': 'img/Referidos-CL.png',
-        'Mexico': 'img/Referidos-MX.png',
-        'Colombia': 'img/Referidos-CO.png',
-        'Peru': 'img/Referidos-PE.png',
-        'Argentina': 'img/Referidos-AR.png'
-    };
-    let urlsReferidos = {
-        'Chile': 'https://referido.toteat.com/chile',
-        'Mexico': 'https://referido.toteat.com/mexico',
-        'Colombia': 'https://referido.toteat.com/colombia',
-        'Peru': 'https://referido.toteat.com/peru',
-        'Argentina': 'https://referido.toteat.com/argentina'
-    };
+      function actualizarImagenFirmaOpciones() {
+        let imagenesReferidos = {
+          Chile: 'img/Referidos-CL.png',
+          Mexico: 'img/Referidos-MX.png',
+          Colombia: 'img/Referidos-CO.png',
+          Peru: 'img/Referidos-PE.png',
+          Argentina: 'img/Referidos-AR.png',
+        }
+        let urlsReferidos = {
+          Chile: 'https://referido.toteat.com/chile',
+          Mexico: 'https://referido.toteat.com/mexico',
+          Colombia: 'https://referido.toteat.com/colombia',
+          Peru: 'https://referido.toteat.com/peru',
+          Argentina: 'https://referido.toteat.com/argentina',
+        }
 
-    let paisSeleccionado = document.getElementById('pais').value;
-    let firmaImagen = document.getElementById('firmaImagen');
-    let urlLanding = document.getElementById('urlLanding');
+        let paisSeleccionado = document.getElementById('pais').value
+        let firmaImagen = document.getElementById('firmaImagen')
+        let urlLanding = document.getElementById('urlLanding')
 
-    if (firmaImagen) {
-            firmaImagen.src = imagenesReferidos[paisSeleccionado];
+        if (firmaImagen) {
+          firmaImagen.src = imagenesReferidos[paisSeleccionado]
         }
 
         if (urlLanding) {
-            urlLanding.href = urlsReferidos[paisSeleccionado];
-            urlLanding.target = "_blank";
+          urlLanding.href = urlsReferidos[paisSeleccionado]
+          urlLanding.target = '_blank'
         }
-}
+      }
 
-document.getElementById('pais').addEventListener('change', actualizarImagenFirmaOpciones);
-</script>
+      document
+        .getElementById('pais')
+        .addEventListener('change', actualizarImagenFirmaOpciones)
+    </script>
 
-<div class="contenedor-logo-secundario">
-  <img src="img/logo-corto-toteat.svg" alt="logo corto toteat">
-  </div>
+    <div class="contenedor-logo-secundario">
+      <img src="img/logo-corto-toteat.svg" alt="logo corto toteat" />
+    </div>
 
-<div class="detalle-izq">
-<p>Construido con mucho cariño por @Dante</p>
-</div>
-
-</body>
+    <div class="detalle-izq">
+      <p>Construido con mucho cariño por @Dante</p>
+    </div>
+  </body>
 </html>
